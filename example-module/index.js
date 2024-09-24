@@ -4,6 +4,6 @@ export default class MyModule {
   }
 
   logger() {
-    console.log(`${ this.name }  -- YES`);
+    console.log(`${ this.name }  --  YES`);
   }
 }
