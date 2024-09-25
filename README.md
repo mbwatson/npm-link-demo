@@ -10,14 +10,16 @@ and you should see something like
 ├── example-module@1.0.0 -> ./../../../path/to/npm-link-demo/example-module
 ```
 
+back to the project directory.
+
 - `cd ../project`
 
-before moving on, it's instructive to note the contents of `node_modules`,
-specifically `node_modules/package-lock.json` if it already exists.
+notice we have `example-module` already in our
+`package.json`. let's install our dependencies.
 
 - `npm i`
 
-you should see a block in `packages` for an example-module package.
+you should see a block in `/node_modules/package-lock.json` under `packages` referencing the `example-module` package.
 
 ```json
 "packages": {
@@ -29,14 +31,15 @@ you should see a block in `packages` for an example-module package.
 }
 ```
 
-but it isn't ours. this is because we actually installed a real NPM package 
-called [example-module](https://www.npmjs.com/package/example-module).
+but, wait, this isn't ours! we actually installed a real NPM package 
+with the same name, [example-module](https://www.npmjs.com/package/example-module).
 
-let's tell NPM to use our own `example-module` instead.
+we'll tell NPM to use our own `example-module` instead.
+we're still in `project`.
 
 - `npm link ../example-module`
 
-if you've kept an eye on that `packages` block, it now looks like the following.
+now that `packages` block has updated instructions for NPM.
 
 ```json
 "packages": {
@@ -52,9 +55,9 @@ if you've kept an eye on that `packages` block, it now looks like the following.
 ```
 
 > **Note**<br>
-easily undo this link with `npm unlink ../example-module`.
+linking is easily undone with `npm unlink ../example-module`.
 
-now let's see what we see.
+now let's see what we see when we run our script.
 
 - `npm start`
 
