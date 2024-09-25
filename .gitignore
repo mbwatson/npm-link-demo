@@ -1,1 +1,6 @@
 node_modules
+
+# normally, we'd commit our lock files, but
+# part of the purpose of this demo repo is
+# generating new lock files, so we won't track.
+package-lock.json
